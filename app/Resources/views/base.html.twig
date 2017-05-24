@@ -47,7 +47,6 @@ $(document).ready(function(){
                         var sfoto = sagardotegi.foto;
                         var route = "{{ path('sagardotegi_view', { 'idSagardotegi': "change" }) }}".replace("change", ida);
                         var llegar = "{{ path("sagardotegi_mapa", { 'idSagardotegi': "change" }) }}".replace("change", ida);
-                        //var foto = "{{asset("change")}}".replace("change", sfoto);
                         
                         $("#searchResults").append(
     "<hr class='search-hr'><div class='row'>"+
@@ -80,6 +79,8 @@ $(document).ready(function(){
     </head>
     <body>
         <div class="wrapper">
+            
+        <!-- Navbar start -->
         <nav class="navbar navbar-light bg-faded navbar-fixed-top">
             <div class="container-fluid">
                 <div class="row">
@@ -97,7 +98,7 @@ $(document).ready(function(){
                     <div class="col-xs-1 navbar-header hidden-md hidden-lg">
                         <a id="navbar-ham" class="navbar-ham toggle-button visible-xs visible-sm"><i class="fa fa-bars fa-4x" aria-hidden="true"></i></a>
                     </div>
-                    <div class="col-xs-4 col-lg-3 navbar-header p-x-0">
+                    <div class="col-xs-5 col-lg-3 navbar-header p-x-0">
                         <a id="navbar-title" class="navbar-title" href="{{ path('index') }}">Kupe<img class="img-logo"/>Like</a>
                     </div>
                     <div class="col-md-7 col-lg-8 desktop-menu visible-md visible-lg p-x-0">
@@ -120,7 +121,7 @@ $(document).ready(function(){
                             {% endif %}
                         </ul>  
                     </div>
-                    <div class="col-xs-7 col-md-1">
+                    <div class="col-xs-6 col-md-1">
                         <form id="navbar-search" class="pull-right p-x-0" role="search" action="{{ path('sagardotegis_buscar') }}">
                             <div class="form-group">
                               <input  id="search" type="text" class="searchBox hidden" placeholder="{{ 'paginas_estaticas.menu.buscar' | trans }}">
@@ -132,6 +133,7 @@ $(document).ready(function(){
                 </div>
             </div>
         </nav>
+        <!-- Navbar END -->
         
         <!-- Search erantzunak -->
         <div class="container-fluid">
@@ -140,6 +142,7 @@ $(document).ready(function(){
                 </div>
             </div>
         </div>
+        <!-- Search erantzunak END -->
 
         <!-- Menu desplegable izquierda -->
         <div class="menu">
@@ -168,13 +171,13 @@ $(document).ready(function(){
                     <a class="{% if app.request.attributes.get('_route') starts with 'sagardotegien_mapak' %}menu-links-active{% endif %}" href="{{ path('sagardotegien_mapak') }}"><li>{{ 'paginas_estaticas.menu.mapa' | trans }}</li></a>
                     <a class="{% if app.request.attributes.get('_route') starts with 'contacto' %}menu-links-active{% endif %}" href="{{ path('contacto') }}"><li>{{ 'paginas_estaticas.menu.contacto' | trans }}</li></a>
                     <a class="{% if app.request.attributes.get('_route') starts with 'nosotros' %}menu-links-active{% endif %}" href="{{ path('nosotros') }}"><li>{{ 'paginas_estaticas.menu.nosotros' | trans }}</li></a>
-                    <a class="btn-access"><li>{{ 'paginas_estaticas.menu.accederr' | trans }}</li></a>
+                    <!-- <a class="btn-access"><li>{{ 'paginas_estaticas.menu.accederr' | trans }}</li></a> -->
                 {% endif %}
             </ul>
-       </div>
+        </div>
+        <!-- Menu desplegable izquierda END -->
            
-       <!-- Access window -->
-       
+        <!-- Access window -->
         <div class="accesWrapper">
             <div id="accessWindow" class="row">
                 <div class="col-xs-12">
@@ -195,6 +198,7 @@ $(document).ready(function(){
                 </div>
             </div>
         </div>
+        <!-- Access window END -->
                
         
         <!-- IMPORTANTE -> Todos los ficheros que se cargen en el block body deben empezar con un div container-fluid!!!!
@@ -204,12 +208,12 @@ $(document).ready(function(){
         <div class="push"></div>
         </div>
         <div class="container-fluid">
-            
+            <!-- Footer start -->
             <div class="row footer text-center">
                 <div class="col-xs-12">
                     
                     <div class="row">
-                        <div class="col-xs-12 font-face-primary p-20"> 
+                        <div class="col-xs-12 font-face-primary p-footer"> 
                         
                             <ul class="list-inline ftitle">
                                 
@@ -236,7 +240,7 @@ $(document).ready(function(){
                     
                     <div class="row">
                         <div class="col-xs-12 font-face-primary"> 
-                            <ul class="list-inline footer-menu text-uppercase">
+                            <ul class="list-inline footer-menu footer-menu-site text-uppercase">
                                 <li><a href="{{ path('index') }}">{{ 'paginas_estaticas.footer.inicio' | trans }}</a></li>
                                 <li><a href="{{ path('sagardotegien_mapak') }}">{{ 'paginas_estaticas.footer.mapa' | trans }}</a></li>
                                 <li><a href="{{ path('sagardotegis_index') }}">{{ 'paginas_estaticas.footer.sidrerias' | trans }}</a></li>
@@ -245,10 +249,12 @@ $(document).ready(function(){
                             </ul>
                         </div>
                         <div class="col-xs-12 font-face-primary"> 
-                            <ul class="list-unstyled footer-menu green-color">
+                            <ul class="list-unstyled footer-menu footer-menu-contact green-color">
                                 <li><a href="tel:655555555"><i class="fa fa-phone-square" aria-hidden="true"></i> +34 655 55 55 55</a></li>
                                 <li><a href="mailto:kupelikeproject@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i> kupelikeproject@gmail.com</a></li>
-                                <li><a href="https://www.google.es/maps/place/Instituto+de+Educaci%C3%B3n+Secundaria+Xabier+Zubiri+Manteo/@43.3274463,-1.9710159,20z/data=!4m5!3m4!1s0x0:0x8654b5f1f9a490ae!8m2!3d43.3274118!4d-1.9708255"><i class="fa fa-map-marker" aria-hidden="true"></i> Paseo de José Miguel Barandiarán, 10-12, 20013 San Sebastián, Guipúzcoa</a></li>
+                                <li><a href="https://www.google.es/maps/place/Instituto+de+Educaci%C3%B3n+Secundaria+Xabier+Zubiri+Manteo/@43.3274463,-1.9710159,20z/data=!4m5!3m4!1s0x0:0x8654b5f1f9a490ae!8m2!3d43.3274118!4d-1.9708255">
+                                    <i class="fa fa-map-marker" aria-hidden="true"></i> José Miguel Barandiarán, 10-12, 20013 San Sebastián
+                                </a></li>
                             </ul>
                         </div>
                     </div>
@@ -257,8 +263,8 @@ $(document).ready(function(){
                     Copyright © 2017 KupeLike - All Rights Reserved - <a href="/privacy" class="">Privacy</a>
                 </div>
                 <hr class="fline"/>
-            </footer>
-        
+            </div>
+            <!-- Footer END -->
         </div><!-- .container-fluid -->
        
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
